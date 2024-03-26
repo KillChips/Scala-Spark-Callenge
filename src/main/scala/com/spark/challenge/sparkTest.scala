@@ -23,17 +23,26 @@ object sparkTest {
         val df_user_rev: DataFrame = read_csv("src/main/resources/googleplaystore_user_reviews.csv")
         val df_playstore: DataFrame = read_csv("src/main/resources/googleplaystore.csv")
 
+        //Part 1 related functions
         val df1 = part1(df_user_rev)
         df1.show(false)
+        
+        //Part 2 related functions
         val df2 = part2(df_playstore)
         //save_csv(df2, "src/main/resources/best_apps.csv")
         df2.show(false)
+        
+        //Part 3 related functions
         val df3 = part3(df_playstore)
         //df3.show(false)
         //save_csv(df3, "src/main/resources/part3_test1.csv")
+        
+        //Part 4 related functions
         val joined_df = part4(df3, df1)
         joined_df.show(false)
         //save_parquet(joined_df, "src/main/resources/googleplaystore_cleaned.parquet")
+        
+        //Part 5 related functions
         val df4 = part5(joined_df)
         df4.show(false)
         //save_parquet(df4, "src/main/resources/googleplaystore_metrics.parquet")
